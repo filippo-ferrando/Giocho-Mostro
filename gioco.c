@@ -124,7 +124,7 @@ void main()
     int comandoAttacco;
     int numeroMostri = 0;
     char nome[LUNG];
-    int k, sleep = 20;
+    int k, sleep = 10000;
     srand(time(NULL));
 
     do
@@ -181,9 +181,6 @@ void main()
                     printf("%s ATTACCA %s\n", &(n2.nome), &(n1.nome));
                     n1.vita = n1.vita - n2.forza;
                     printf("Vita rimanente di %s = %d\n", &(n1.nome), n1.vita);
-                    for (k = 0; k < sleep; k++)
-                    {
-                    }
                 }
             } while (n1.vita > 0 && n2.vita > 0);
 
