@@ -113,9 +113,11 @@ Mostro creaMostro(char nome[LUNG]){
 void main(){
     Mostro n1, n2;
     int opz;
-    char comandoAttacco;
+    int comandoAttacco;
     int numeroMostri = 0;
     char nome[LUNG];
+    int k, sleep=20;
+    srand(time(NULL));
 
     do{
         opz=menu();
@@ -149,15 +151,17 @@ void main(){
             case 2:
                 printf("1 giocare preme F per giocare\n2 giocatore preme B per giocare\n");
                 do{
-                    scanf("%c", &comandoAttacco);
-                    if(comandoAttacco == 'f' || comandoAttacco == 'F'){
+                    comandoAttacco = rand()%(2-1+1)+1;
+                    //scanf("%c", &comandoAttacco);
+                    if(comandoAttacco == 1){
                         printf("%s ATTACCA %s\n", &(n1.nome), &(n2.nome));
                         n2.vita -= n1.forza;
                         printf("Vita attuale di %s = %d\n", &(n2.nome), n2.vita);
-                    } else if(comandoAttacco == 'b' || comandoAttacco == 'B'){
+                    } else if(comandoAttacco == 2){
                         printf("%s ATTACCA %s\n", &(n2.nome), &(n1.nome));  
                         n1.vita = n1.vita - n2.forza;
                         printf("Vita rimanente di %s = %d\n", &(n1.nome), n1.vita);
+                        for(k=0;k<sleep;k++){}
                     }
                 } while(n1.vita > 0 && n2.vita > 0);
 
